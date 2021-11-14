@@ -110,8 +110,10 @@ class TabelBasisAturanController extends Controller
      * @param  \App\TabelBasisAturan  $tabelBasisAturan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TabelBasisAturan $tabelBasisAturan)
+    public function destroy($id_basis_atauran)
     {
-        //
+       
+       TabelBasisAturan::find($id_basis_atauran)->delete();
+       return redirect('/basis_a')->with('jenis','news has been deleted!');
     }
 }

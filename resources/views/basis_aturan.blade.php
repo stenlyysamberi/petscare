@@ -102,8 +102,8 @@
                                 </td>
 
                                 <td>
-                                    <a href="#" data-toggle="modal" data-target="#edit-hewan{{ $item->id }}" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                    <form action="/hewan_p/{{ $item->id }}" method="post">
+                                    <a href="#" data-toggle="modal" data-target="#edit-hewan{{ $item->id_basis_atauran }}" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
+                                    <form action="/basis_a/{{ $item->id_basis_atauran }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button onclick="return confirm('apakah Anda akan menghapus data ini?')" class="action-icon border-0"><i class="mdi mdi-delete"></i></button>
@@ -113,27 +113,44 @@
                             </tr>
 
                             {{-- modal edit hewan --}}
-                            {{-- <form method="POST" action="/hewan_p/{{ $item->id }}">
+                            <form method="POST" action="/basis_a/{{ $item->id_basis_atauran }}">
                                 @csrf
                                 @method('put')
-                                <div id="edit-hewan{{ $item->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div id="edit-hewan{{ $item->id_basis_atauran }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                             
                             
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                            
-                                                <h4 class="modal-title">Edit Hewan</h4>
+                                                   
+                                                <h4 class="modal-title">Edit Basis Aturan</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                             </div>
                                             <div class="modal-body p-4">
                             
-                            
+        
                                                <div class="row">
                                                 <div class="col-md-12">
+
                                                     <div class="form-group">
-                                                        <label for="field-3" class="control-label">Nama</label>
-                                                        <input type="text" value="{{ $item->nama_hewan }}" name="nama_hewan" required="required" class="form-control" placeholder="Enter Text">
+                                                        <label for="field-3" class="control-label">Nama Gejala</label>
+                                                        
+                                                        <select name="id_gejala" id="" class="form-control">
+                                                            @foreach ($gejala as $item)
+                                                                <option value="{{ $item->id }}">{{ $item->nama_gejala }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        {{ $item->bobot }}
+                                                        <label for="field-3" class="control-label">Nama Penyakit</label>
+                                                        
+                                                        <select name="id_penyakit" id="" class="form-control">
+                                                            @foreach ($penyakit as $items)
+                                                            <option value="{{ $items->id }}">{{ $items->nama_penyakit }}</option>
+                                                        @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,16 +163,22 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="field-1" class="control-label">ID </label>
-                                                        <input readonly value="{{ auth()->user()->id }}" type="text" maxlength="12"  class="form-control" id="field-1" required="required" placeholder="+62">
+                                                        <label for="field-1" class="control-label">Bobot </label>
+                                                        <input name="bobot" value="{{ $item->id_basis_atauran }}" type="text" maxlength="12"  class="form-control" id="field-1" required="required" placeholder="0.02">
                                                     </div>
                                                 </div>
                                                
                                                 <div class="col-md-6">
+                                                  
+                                                   
                                                     <div class="form-group">
-                                                        <label for="field-2"  class="control-label">User</label>
-                                                        <input readonly  value="{{ auth()->user()->nama }}" required="required" class="form-control">
-                                                           
+                                                        <label for="field-2"  class="control-label">Jenis Hewan</label>
+                                                        
+                                                        <select class="form-control" name="id_hewan" id="">
+                                                            @foreach ($hewan as $item)
+                                                                <option value="{{ $item->id }}">{{ $item->nama_hewan }}</option>
+                                                            @endforeach
+                                                        </select>
                                                            
                                                         
                                                     </div>
@@ -176,10 +199,9 @@
                             
                             </div>
                             
-                            </form> --}}
+                            </form>
 
                             {{-- end edit modal --}}
-
                              @endforeach
                         </tbody>
                     </table>

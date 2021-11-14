@@ -9,6 +9,10 @@ class TabelBasisAturan extends Model
 {
     protected $guarded = [];
 
+   
+
+    protected $primaryKey = "id_basis_atauran";
+
 
     static function basis_aturan(){
         $basis = DB::table('tabel_basis_aturans')
