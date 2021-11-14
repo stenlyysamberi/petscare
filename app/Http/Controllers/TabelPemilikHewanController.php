@@ -38,7 +38,7 @@ class TabelPemilikHewanController extends Controller
     public function register(Request $request)
     {
         $simpan =  $request->validate([
-            'id'         => 'required',
+            'id'         => '',
             'name'       => 'required',
             "username"   => "required",
             "password"   => "required",

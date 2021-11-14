@@ -19,13 +19,14 @@ class CreateTabelBasisAturansTable extends Migration
             $table->bigInteger('id_penyakit')->unsigned();
             $table->string('bobot',5)->nullable();
             $table->bigInteger('id_hewan')->unsigned()->nullable();
+            $table->string('created_at');
+            $table->string('updated_at');
 
             $table->foreign('id_gejala')->references('id')->on('tabel_list_gejalas')->on('tabel_jenis_hewans');
 
             
             $table->foreign('id_penyakit')->references('id')->on('data_penyakits')->on('tabel_jenis_hewans');
-            
-
+        
             $table->foreign('id_hewan')->references('id')->on('tabel_jenis_hewans')->on('tabel_jenis_hewans');
             
             

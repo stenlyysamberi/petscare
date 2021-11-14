@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\ArtikelController;
 use App\Http\Controllers\API\ProfilBalaiController;
 use App\Http\Controllers\ApiLoginController;
+use App\Http\Controllers\TabelHewanController;
 use App\TabelProfilBalai;
 use App\User;
 use Illuminate\Http\Request;
@@ -37,4 +38,9 @@ Route::get('/dokter', function () {
 Route::post('/login',[ApiLoginController::class,'login']);
 
 Route::post('/get_profil',[ApiLoginController::class,'get_profil']);
+
+
+
+Route::resource('/addMyPats', TabelHewanController::class);
+Route::get('/pet/{id}',[TabelHewanController::class,'show']);
 

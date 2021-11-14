@@ -53,6 +53,7 @@
                                 <th>No</th>
                                 <th>Nama Gejala</th>
                                 <th>Nama Penyakit</th>
+                                <th>Nilai Bobot</th>
                                 <th>Create at</th>
                                 <th>Update at</th>
                                 
@@ -77,11 +78,16 @@
                                    {{ $loop->iteration }}
                                 </td>
                                 <td>
+                                    {{ $item->nama_gejala }}
+                                   
+                                </td>
+
+                                <td>
                                     {{ $item->nama_penyakit }}
                                 </td>
 
                                 <td>
-                                    {{ $item->nama_gejala }}
+                                    {{ $item->bobot }}
                                 </td>
                                 <td>
                                     {{ $item->created_at }}

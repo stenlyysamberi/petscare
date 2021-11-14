@@ -302,7 +302,7 @@ https://templatemo.com/tm-540-lava-landing-page
                                     <div class="col-md-12 col-sm-12">
 
                                         <fieldset>
-                                            <input  name="id" value="{{ old('name') }}" type="text" @error('name')
+                                            <input hidden  name="id" value="{{ old('name') }}" type="text" @error('name')
                                                 is-invalid
                                             @enderror  
                                             
