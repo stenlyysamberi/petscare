@@ -4,6 +4,7 @@ use App\Http\Controllers\API\ArtikelController;
 use App\Http\Controllers\API\ProfilBalaiController;
 use App\Http\Controllers\ApiLoginController;
 use App\Http\Controllers\TabelHewanController;
+use App\TabelListGejala;
 use App\TabelProfilBalai;
 use App\User;
 use Illuminate\Http\Request;
@@ -33,6 +34,10 @@ Route::get('/penyakit',[ArtikelController::class,'index']);
 
 Route::get('/dokter', function () {
     return User::all();
+});
+
+Route::get('/gejala', function () {
+    return TabelListGejala::all();
 });
 
 Route::post('/login',[ApiLoginController::class,'login']);
