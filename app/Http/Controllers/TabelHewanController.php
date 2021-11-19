@@ -48,7 +48,7 @@ class TabelHewanController extends Controller
             'id_jenis_hewan'   => 'required',
             'nama_hewan'       => 'required',
             'tgl_lahir'        => 'required',
-            'umur'       => 'required'
+            'umur'             => 'required'
         ]);
 
         

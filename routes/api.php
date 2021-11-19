@@ -3,7 +3,8 @@
 use App\Http\Controllers\API\ArtikelController;
 use App\Http\Controllers\API\ProfilBalaiController;
 use App\Http\Controllers\ApiLoginController;
-use App\Http\Controllers\TabelHewanController;
+
+use App\TabelJenisHewan;
 use App\TabelListGejala;
 use App\TabelProfilBalai;
 use App\User;
@@ -38,6 +39,10 @@ Route::get('/dokter', function () {
 
 Route::get('/gejala', function () {
     return TabelListGejala::all();
+});
+
+Route::get('/jenis', function () {
+    return TabelJenisHewan::all();
 });
 
 Route::post('/login',[ApiLoginController::class,'login']);
