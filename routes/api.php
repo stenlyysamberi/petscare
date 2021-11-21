@@ -48,6 +48,7 @@ Route::get('/jenis', function () {
 Route::post('/login',[ApiLoginController::class,'login']);
 
 Route::post('/get_profil',[ApiLoginController::class,'get_profil']);
+Route::post('/edit_profil/{id}',[ApiLoginController::class,'edit_profil']);
 
 
 
