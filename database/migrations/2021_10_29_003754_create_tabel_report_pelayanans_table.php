@@ -13,8 +13,13 @@ class CreateTabelReportPelayanansTable extends Migration
      */
     public function up()
     {
-        Schema::create('tabel_report_pelayanans', function (Blueprint $table) {
+        Schema::create('data_konsultasi', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->String('tgl_konsultasi');
+            $table->Integer('id_data_hewan');
+            $table->Integer('id_data_basis_aturan');
+            $table->Integer('id_data_jenis_hewan');
+            $table->String('hasil_konsultasi');
             $table->timestamps();
         });
     }
