@@ -18,12 +18,12 @@ class CreateTabelHewansTable extends Migration
             $table->string('nama_hewan',30)->nullable();
             $table->string('tgl_lahir')->nullable();
             $table->string('umur')->nullable();
-            $table->bigInteger('id_jenis_hewan')->unsigned();
-            $table->bigInteger('id_pemilik_hewan')->unsigned();
+            $table->string('id_jenis_hewans')->nullable();
+            $table->bigInteger('id_pemilik_hewans')->unsigned();
             $table->timestamps();
 
-            $table->foreign('id_pemilik_hewan')->references('id')->on('tabel_pemilik_hewans');
-            $table->foreign('id_jenis_hewan')->references('id')->on('tabel_jenis_hewans');
+            $table->foreign('id_pemilik_hewans')->references('id_pemilik_hewan')->on('tabel_pemilik_hewans');
+            // $table->foreign('id_jenis_hewan')->references('id')->on('tabel_jenis_hewans');
         });
     }
 

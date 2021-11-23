@@ -44,11 +44,11 @@ class TabelHewanController extends Controller
     public function store(Request $request)
     {
         $simpan =  $request->validate([
-            'id_pemilik_hewan' => 'required',
-            'id_jenis_hewan'   => 'required',
-            'nama_hewan'       => 'required',
-            'tgl_lahir'        => 'required',
-            'umur'             => 'required'
+            'id_pemilik_hewans' => 'required',
+            'id_jenis_hewans'   => 'required',
+            'nama_hewan'        => 'required',
+            'tgl_lahir'         => 'required',
+            'umur'              => 'required'
         ]);
 
         
@@ -72,14 +72,35 @@ class TabelHewanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request)
+    
     {
-        $user = TabelHewan::where('id_hewan', $request->id)->first();
-       
-        return response()->json(
         
-            $user
-        
-        );
+        try{
+            $user = TabelHewan::where('id_pemilik_hewans', $request->id)->get();
+            if ($user){
+                return response()->json(
+                   
+                    $user
+                    
+                   
+                    //$user
+                    // "result" => "null",
+                    // "nama"   => $user->nama_hewan,
+                    // "ttl"    => $user->tgl_lahir,
+                    // "umur"   => $user->umur,
+                    // "jenis"  => $user->id_jenis_hewans,
+                );
+            }else{
+                return response()->json([
+                    'result' => "not null"
+                ]);
+            }
+            
+        }catch(Throwable $th){
+            return response()->json([
+                'result' => $th->getMessage()
+            ]);
+        }
     }
 
     /**

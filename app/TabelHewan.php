@@ -9,6 +9,8 @@ class TabelHewan extends Model
 {
     protected $guarded = [];
 
+    protected $PrimaryKey = "id_pemilik_hewan";
+
     static function hewan(){
         $basis = DB::table('tabel_hewans')
         ->join('tabel_pemilik_hewans','tabel_hewans.id_pemilik_hewan','=','tabel_pemilik_hewans.id')

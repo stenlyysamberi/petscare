@@ -14,7 +14,7 @@ class CreateTabelPemilikHewansTable extends Migration
     public function up()
     {
         Schema::create('tabel_pemilik_hewans', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_pemilik_hewan');
             $table-> text('name');
             $table->string('username',20);
             $table->text('password');

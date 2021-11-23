@@ -4,6 +4,9 @@ use App\Http\Controllers\API\ArtikelController;
 use App\Http\Controllers\API\ProfilBalaiController;
 use App\Http\Controllers\ApiLoginController;
 
+//use App\Http\Controllers\TabelJenisHewanController;
+//use APP\Http\Controllers\TabelHewanController;
+
 use App\TabelJenisHewan;
 use App\TabelListGejala;
 use App\TabelProfilBalai;
@@ -53,6 +56,6 @@ Route::post('/edit_profil/{id}',[ApiLoginController::class,'edit_profil']);
 
 
 
-Route::resource('/addMyPats', TabelHewanController::class);
-Route::get('/pet/{id}',[TabelHewanController::class,'show']);
+Route::resource('/addMyPats',TabelHewanController::class);
+Route::post('/pet/{id}',[App\Http\Controllers\TabelHewanController::class,'show']);
 

@@ -30,14 +30,14 @@ class ApiLoginController extends Controller
 
         return response()->json([
             'result'   => 'berhasil',
-            'id'       => $user->id,
+            'id'       => $user->id_pemilik_hewan,
             'nama'     => $user->name
 
         ]);
     }
 
     public function get_profil (Request $request){
-        $user = TabelPemilikHewan::where('id', $request->id)->first();
+        $user = TabelPemilikHewan::where('id_pemilik_hewan', $request->id)->first();
         return response()->json(
             
                 $user
